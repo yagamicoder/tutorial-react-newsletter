@@ -5,6 +5,7 @@ import NewsletterForm from './NewsletterForm';
 import Loading from './shared/Loading';
 import axios from 'axios';
 import notify from './helpers/notify';
+import apiUrl from './helpers/apiUrl';
 
 class App extends Component {
   constructor(props) {
@@ -15,13 +16,13 @@ class App extends Component {
     }
   }
 
-  handleLoadingState = flag => {
-    this.setState({ loading: flag });
+  handleLoadingState = loading => {
+    this.setState({ loading: loading });
   }
 
   handleSendEmail = email => {
     this.handleLoadingState(true);
-    axios.post('/subscribe', {
+    axios.post(`${apiUrl}/subscribe`, {
       email: email
     }).then(data => {
       notify('success', 'Subscribed!', data.message);
