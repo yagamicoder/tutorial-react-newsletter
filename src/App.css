@@ -1,0 +1,92 @@
+@import '~antd/dist/antd.css';
+
+/* Globals */
+
+body {
+    background: #f5f5f5;
+    color: #616161;
+}
+
+.ant-btn-primary {
+    background-color: rgba(22, 160, 133, .6);
+    border: none;
+}
+
+.ant-btn-primary:hover {
+    background-color: rgba(22, 160, 133, 1);
+}
+
+.ant-btn-primary[disabled] {
+    background-color: rgba(22, 160, 133, .4);
+    border-color: rgba(22, 160, 133, .4);
+    color: #fff;
+}
+
+.ant-btn-primary[disabled]:hover {
+    background-color: rgba(22, 160, 133, .4);
+    border-color: rgba(22, 160, 133, .4);
+    color: #fff;
+}
+
+.txt-highlight {
+    color: rgba(22, 160, 133, 1);
+}
+
+.ant-spin {
+  padding-top: 2%;
+  color: rgba(22, 160, 133, 1);
+}
+.ant-spin-dot i {
+  background-color: rgba(22, 160, 133, 1);
+}
+
+/* Header */
+
+.newsletter-header {
+    background: rgba(22, 160, 133, .6);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.newsletter-header h1 {
+    color: #FFF;
+}
+
+.newsletter-header i {
+    color: #FFF;
+}
+
+.newsletter-header .ant-row {
+    width: 100%;
+}
+
+
+/* Content */
+
+.newsletter-content {
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter-content .lead-txt {
+    text-align: center;
+    font-size: 15px;
+}
+
+.newsletter-form {
+    text-align: center;
+    padding-top: 1%;
+}
+
+
+/* Footer */
+
+.newsletter-footer {
+    background: #3e3e3e;
+    padding: 20px 0;
+    text-align: center;
+    color: #FFF;
+}
