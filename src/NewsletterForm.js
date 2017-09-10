@@ -4,7 +4,7 @@ import { Form, Input, Button, Icon } from 'antd';
 
 const NewsletterForm = ({ handleSendEmail, handleOnChangeEmail, email }) => {
   return (
-    <Form layout='inline' className="newsletter-form">
+    <Form layout='inline' className="newsletter-form" action="javascript:void(0);" method="POST">
       <Form.Item>
         <Input prefix={<Icon type="red-envelope" />} placeholder="Email" value={email}
           onChange={({target}) => handleOnChangeEmail(target.value)} />

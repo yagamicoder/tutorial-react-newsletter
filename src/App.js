@@ -24,11 +24,12 @@ class App extends Component {
     this.handleLoadingState(true);
     axios.post(`${apiUrl}/subscribe`, {
       email: email
-    }).then(data => {
-      notify('success', 'Subscribed!', data.message);
+    }).then(res => {
+      notify('success', 'Subscribed!', res.data.message);
       this.setState({ email: '' });
       this.handleLoadingState(false);
     }).catch(error => {
+      console.log(error);
       notify('error', 'Unable to subscribe!', error.message);
       this.handleLoadingState(false);
     });
