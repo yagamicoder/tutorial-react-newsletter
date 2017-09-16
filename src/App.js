@@ -4,8 +4,7 @@ import { Row, Col } from 'antd';
 import NewsletterForm from './NewsletterForm';
 import Loading from './shared/Loading';
 import axios from 'axios';
-import notify from './helpers/notify';
-import apiUrl from './helpers/apiUrl';
+import { apiUrl, notify } from './helpers';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +16,7 @@ class App extends Component {
   }
 
   handleLoadingState = loading => {
+    //Set loading flag
     this.setState({ loading: loading });
   }
 
@@ -25,11 +25,19 @@ class App extends Component {
     axios.post(`${apiUrl}/subscribe`, {
       email: email
     }).then(res => {
-      notify('success', 'Subscribed!', res.data.success);
-      this.setState({ email: '' });
-      this.handleLoadingState(false);
+      if(res.data.success) {
+        //If the response from MailChimp is good...
+        notify('success', 'Subscribed!', res.data.success);
+        this.setState({ email: '' });
+        this.handleLoadingState(false);
+      } else {
+        //Handle the bad MailChimp response...
+        notify('error', 'Unable to subscribe!', res.data.error);
+        this.handleLoadingState(false);
+      }
     }).catch(error => {
-      notify('error', 'Unable to subscribe!', error.message);
+      //This catch block returns an error if Node API returns an error
+      notify('error', 'Error. Please try again later.', error.message);
       this.handleLoadingState(false);
     });
   }
@@ -61,7 +69,7 @@ class App extends Component {
           </Row>
         </section>
         <footer className="newsletter-footer">
-          React Newsletter
+          React Newsletter 2017
         </footer>
       </div>
     );
