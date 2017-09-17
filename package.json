@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^2.13.0",
     "axios": "^0.16.2",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "validator": "^8.2.0"
